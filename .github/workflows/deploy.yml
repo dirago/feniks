@@ -51,7 +51,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
+          # OVH shared hosting (Perso) does not implement FTPS (AUTH TLS): plain FTP only.
+          protocol: ftp
           local-dir: ./dist/
           server-dir: ./www/
           # Incremental sync: a state file on the server lists what was uploaded,
