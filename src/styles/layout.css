@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Layout primitives
+   ========================================================================== */
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+}
+
+/* Section header: mono label + large title. */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  font-weight: 500;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.section-label::before {
+  content: '';
+  inline-size: 2.25rem;
+  block-size: 1px;
+  background: currentcolor;
+  opacity: 0.6;
+}
+
+.display {
+  font-size: var(--step-5);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: var(--tracking-display);
+  font-stretch: 92%;
+}
+
+/* Serif italic accent inside display titles. */
+.accent-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--accent);
+}

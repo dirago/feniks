@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: 'Instrument Sans';
+        src: url('../../node_modules/@fontsource-variable/instrument-sans/files/instrument-sans-latin-wdth-normal.woff2')
+          format('woff2');
+        font-weight: 400 700;
+        font-stretch: 75% 100%;
+      }
+      @font-face {
+        font-family: 'Instrument Serif';
+        font-style: italic;
+        src: url('../../node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2')
+          format('woff2');
+      }
+      @font-face {
+        font-family: 'Geist Mono';
+        src: url('../../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2')
+          format('woff2');
+        font-weight: 100 900;
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        position: relative;
+        font-family: 'Instrument Sans', sans-serif;
+        color: #1a1815;
+        background:
+          radial-gradient(60% 70% at 8% 0%, rgb(255 214 170 / 55%), transparent 70%),
+          radial-gradient(50% 60% at 100% 100%, rgb(214 196 170 / 40%), transparent 70%), #f1ebe1;
+      }
+      .grain {
+        position: absolute;
+        inset: 0;
+        opacity: 0.06;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      .sheet {
+        position: absolute;
+        width: 380px;
+        aspect-ratio: 210 / 297;
+        right: -40px;
+        top: 70px;
+        rotate: -5deg;
+        border-radius: 2px;
+        background-color: #fffdf9;
+        background-image:
+          linear-gradient(rgb(26 24 21 / 12%) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(26 24 21 / 12%) 1px, transparent 1px),
+          linear-gradient(rgb(26 24 21 / 5%) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(26 24 21 / 5%) 1px, transparent 1px);
+        background-size:
+          40px 40px,
+          40px 40px,
+          8px 8px,
+          8px 8px;
+        box-shadow:
+          0 1px 1px rgb(80 55 30 / 5%),
+          0 30px 60px -20px rgb(80 55 30 / 22%);
+      }
+      .sheet--b {
+        width: 220px;
+        right: 250px;
+        top: -60px;
+        rotate: 8deg;
+        background-image: none;
+        opacity: 0.85;
+      }
+      .content {
+        position: absolute;
+        inset: 72px 80px;
+        display: flex;
+        flex-direction: column;
+      }
+      .name {
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+      .title {
+        margin-top: auto;
+        font-size: 150px;
+        font-weight: 620;
+        font-stretch: 88%;
+        line-height: 0.86;
+        letter-spacing: -0.055em;
+      }
+      .title em {
+        display: block;
+        padding-left: 0.6em;
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1.08em;
+        letter-spacing: -0.035em;
+        color: #a76543;
+      }
+      .meta {
+        margin-top: 48px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: 'Geist Mono', monospace;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #5f5a52;
+      }
+      .meta::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: #a76543;
+        rotate: 45deg;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet"></div>
+    <div class="sheet sheet--b"></div>
+    <div class="grain"></div>
+    <div class="content">
+      <p class="name">Raphaël Di Rago</p>
+      <h1 class="title">Lead Frontend <em>Freelance</em></h1>
+      <p class="meta">Vue.js · TypeScript</p>
+    </div>
+  </body>
+</html>

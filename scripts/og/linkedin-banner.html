@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      LinkedIn banner — 1584 × 396. The bottom-left corner is covered by the
+      profile photo: nothing meaningful lives there. `?dark` renders the dark theme.
+    -->
+    <style>
+      @font-face {
+        font-family: 'Instrument Sans';
+        src: url('../../node_modules/@fontsource-variable/instrument-sans/files/instrument-sans-latin-wdth-normal.woff2')
+          format('woff2');
+        font-weight: 400 700;
+        font-stretch: 75% 100%;
+      }
+      @font-face {
+        font-family: 'Instrument Serif';
+        font-style: italic;
+        src: url('../../node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2')
+          format('woff2');
+      }
+      @font-face {
+        font-family: 'Geist Mono';
+        src: url('../../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2')
+          format('woff2');
+        font-weight: 100 900;
+      }
+
+      :root {
+        --surface: #f1ebe1;
+        --sheet: #fffdf9;
+        --text: #1a1815;
+        --muted: #5f5a52;
+        --accent: #a76543;
+        --hairline: rgb(26 24 21 / 13%);
+        --hairline-soft: rgb(26 24 21 / 5%);
+        --light-warm: rgb(255 214 170 / 55%);
+        --light-cool: rgb(214 196 170 / 40%);
+        --shadow: 0 1px 1px rgb(80 55 30 / 5%), 0 30px 60px -20px rgb(80 55 30 / 22%);
+        --grain-opacity: 0.06;
+        --grain-blend: multiply;
+      }
+
+      .dark {
+        --surface: #161412;
+        --sheet: #221f1b;
+        --text: #f2ece3;
+        --muted: #aba399;
+        --accent: #d49a73;
+        --hairline: rgb(255 240 225 / 12%);
+        --hairline-soft: rgb(255 240 225 / 5%);
+        --light-warm: rgb(212 154 115 / 14%);
+        --light-cool: rgb(120 90 60 / 14%);
+        --shadow: 0 1px 1px rgb(0 0 0 / 30%), 0 30px 60px -20px rgb(0 0 0 / 60%);
+        --grain-opacity: 0.08;
+        --grain-blend: overlay;
+      }
+
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 1584px;
+        height: 396px;
+        overflow: hidden;
+        position: relative;
+        font-family: 'Instrument Sans', sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(45% 90% at 30% 0%, var(--light-warm), transparent 70%),
+          radial-gradient(40% 80% at 100% 100%, var(--light-cool), transparent 70%), var(--surface);
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        opacity: var(--grain-opacity);
+        mix-blend-mode: var(--grain-blend);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .dark .grain {
+        filter: invert(1);
+      }
+
+      /* ---- Sheets: the graph paper sits behind the profile photo ------------ */
+      .sheet {
+        position: absolute;
+        aspect-ratio: 210 / 297;
+        border-radius: 2px;
+        background-color: var(--sheet);
+        box-shadow: var(--shadow);
+      }
+
+      .sheet--plain {
+        width: 190px;
+        left: 250px;
+        top: -150px;
+        rotate: 9deg;
+        opacity: 0.85;
+      }
+
+      .sheet--corner {
+        width: 230px;
+        right: -60px;
+        top: 180px;
+        rotate: -11deg;
+        opacity: 0.6;
+      }
+
+      /* ---- Copy: right of the photo, vertically centred --------------------- */
+      .content {
+        position: absolute;
+        left: 520px;
+        right: 88px;
+        top: 50%;
+        translate: 0 -50%;
+        display: grid;
+        gap: 26px;
+      }
+
+      .eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: 'Geist Mono', monospace;
+        font-size: 16px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .eyebrow::before {
+        content: '';
+        width: 36px;
+        height: 1px;
+        background: currentcolor;
+      }
+
+      .title {
+        font-size: 104px;
+        font-weight: 620;
+        font-stretch: 88%;
+        line-height: 0.9;
+        letter-spacing: -0.055em;
+        white-space: nowrap;
+      }
+
+      .title em {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1.08em;
+        letter-spacing: -0.035em;
+        color: var(--accent);
+      }
+
+      .facts {
+        display: flex;
+        gap: 40px;
+        padding-top: 22px;
+        border-top: 1px solid var(--hairline);
+        font-family: 'Geist Mono', monospace;
+        font-size: 15px;
+        white-space: nowrap;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .facts li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .facts li::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        rotate: 45deg;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (location.search.includes('dark')) document.body.classList.add('dark')
+    </script>
+    <div class="sheet sheet--plain"></div>
+    <div class="sheet sheet--corner"></div>
+    <div class="grain"></div>
+
+    <div class="content">
+      <p class="eyebrow">Senior / Lead Frontend · Missions freelance</p>
+      <h1 class="title">Senior Frontend <em>Freelance</em></h1>
+      <ul class="facts">
+        <li>Vue.js · TypeScript · Software Craftsmanship · Design Systems</li>
+        <li>Lyon · Saint-Étienne · Remote</li>
+      </ul>
+    </div>
+  </body>
+</html>

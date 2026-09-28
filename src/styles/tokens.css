@@ -1,0 +1,162 @@
+/* ==========================================================================
+   Design tokens
+   1. Primitives — raw palette, never used directly by components.
+   2. Semantic tokens — what components consume. Redefined per theme.
+   ========================================================================== */
+
+:root {
+  /* ---- Primitives: paper, wood, ink, copper ---------------------------- */
+  --paper-50: #fffdf9;
+  --paper-100: #f7f3ec;
+  --paper-200: #f1ebe1;
+  --paper-300: #e8e0d3;
+  --paper-400: #d9cebd;
+  --wood-300: #d8b49b;
+  --wood-500: #a76543;
+  --wood-600: #8a4f31;
+  --wood-700: #6f3e25;
+  --ink-900: #1a1815;
+  --ink-700: #3a3631;
+  --ink-500: #5f5a52;
+  --char-950: #100f0d;
+  --char-900: #161412;
+  --char-850: #1c1a17;
+  --char-800: #221f1b;
+  --char-700: #2d2924;
+  --sand-100: #f2ece3;
+  --sand-300: #aba399;
+  --copper-300: #e3b18e;
+  --copper-400: #d49a73;
+
+  /* ---- Typography ------------------------------------------------------ */
+  --font-sans:
+    'Instrument Sans Variable', 'Instrument Sans Fallback', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', georgia, serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SF Mono', menlo, monospace;
+
+  /* Fluid type scale (min @ 375px, max @ 1920px) */
+  --step--2: clamp(0.72rem, 0.7rem + 0.08vw, 0.78rem);
+  --step--1: clamp(0.84rem, 0.81rem + 0.12vw, 0.94rem);
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.14rem);
+  --step-1: clamp(1.14rem, 1.07rem + 0.3vw, 1.4rem);
+  --step-2: clamp(1.35rem, 1.2rem + 0.62vw, 1.95rem);
+  --step-3: clamp(1.7rem, 1.4rem + 1.3vw, 2.95rem);
+  --step-4: clamp(2.2rem, 1.65rem + 2.4vw, 4.5rem);
+  --step-5: clamp(2.6rem, 1.8rem + 3.6vw, 6.2rem);
+  --step-6: clamp(3.1rem, 1.6rem + 6.4vw, 9.4rem);
+  --step-hero: clamp(3.4rem, 1.5rem + 10vw, 13.5rem);
+
+  --leading-tight: 0.9;
+  --leading-snug: 1.12;
+  --leading-body: 1.6;
+  --tracking-display: -0.045em;
+  --tracking-title: -0.03em;
+  --tracking-label: 0.08em;
+
+  /* ---- Space (fluid) ---------------------------------------------------- */
+  --space-3xs: clamp(0.25rem, 0.23rem + 0.1vw, 0.31rem);
+  --space-2xs: clamp(0.5rem, 0.47rem + 0.13vw, 0.63rem);
+  --space-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.94rem);
+  --space-s: clamp(1rem, 0.94rem + 0.26vw, 1.25rem);
+  --space-m: clamp(1.5rem, 1.4rem + 0.4vw, 1.88rem);
+  --space-l: clamp(2rem, 1.85rem + 0.65vw, 2.63rem);
+  --space-xl: clamp(3rem, 2.7rem + 1.3vw, 4.25rem);
+  --space-2xl: clamp(4rem, 3.4rem + 2.6vw, 6.5rem);
+  --space-3xl: clamp(6rem, 4.8rem + 5.2vw, 11rem);
+  --section-space: clamp(5rem, 3.2rem + 6.5vw, 11rem);
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --gutter: clamp(1rem, 0.4rem + 3.2vw, 3.5rem);
+  --container-max: 1680px;
+  --container: min(100% - 2 * var(--gutter), var(--container-max));
+  --measure: 62ch;
+  --nav-height: clamp(4rem, 3.6rem + 1.4vw, 5.25rem);
+
+  /* ---- Shape ------------------------------------------------------------ */
+  --radius-xs: 2px;
+  --radius-s: 4px;
+  --radius-m: 10px;
+  --radius-l: 18px;
+  --radius-pill: 999px;
+
+  /* ---- Motion (mirrors src/config/motion.ts) ---------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-micro: 180ms;
+  --duration-s: 320ms;
+  --duration-m: 600ms;
+
+  /* ---- Semantic — light theme (default) --------------------------------- */
+  color-scheme: light;
+
+  --surface: var(--paper-200);
+  --surface-sunken: var(--paper-300);
+  --surface-elevated: var(--paper-50);
+  --surface-raised: var(--paper-100);
+  --text: var(--ink-900);
+  --text-soft: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-faint: #868076; /* large text only (≥ 3:1) */
+  --accent: var(--wood-500);
+  --accent-ink: var(--wood-600);
+  --accent-soft: var(--wood-300);
+  --accent-contrast: var(--paper-50);
+  --border: rgb(26 24 21 / 10%);
+  --border-strong: rgb(26 24 21 / 20%);
+  --hairline: rgb(26 24 21 / 14%);
+  --light-warm: rgb(255 214 170 / 55%);
+  --light-cool: rgb(214 196 170 / 35%);
+  --halo: rgb(215 150 100 / 16%);
+  --grain-opacity: 0.05;
+  --grain-blend: multiply;
+  --shadow-paper:
+    0 1px 1px rgb(80 55 30 / 4%), 0 4px 10px -2px rgb(80 55 30 / 6%),
+    0 24px 48px -18px rgb(80 55 30 / 16%);
+  --shadow-lift:
+    0 1px 1px rgb(80 55 30 / 5%), 0 8px 18px -6px rgb(80 55 30 / 12%),
+    0 32px 64px -24px rgb(80 55 30 / 22%);
+  --paper-edge: inset 0 0 0 1px rgb(255 255 255 / 60%);
+  --focus-ring: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent-ink);
+  --nav-surface: rgb(241 235 225 / 72%);
+  --outline-text: rgb(26 24 21 / 13%);
+  --selection: rgb(167 101 67 / 22%);
+}
+
+/* ---- Semantic — dark theme ------------------------------------------------
+   `data-theme` is always set before first paint by the inline script in
+   index.html (stored choice, else OS preference), so a single selector is
+   enough — the app itself requires JS to render. */
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --surface: var(--char-900);
+  --surface-sunken: var(--char-950);
+  --surface-elevated: var(--char-800);
+  --surface-raised: var(--char-850);
+  --text: var(--sand-100);
+  --text-soft: #d9d1c5;
+  --text-muted: var(--sand-300);
+  --text-faint: #7d766d;
+  --accent: var(--copper-400);
+  --accent-ink: var(--copper-300);
+  --accent-soft: #6b4632;
+  --accent-contrast: var(--char-950);
+  --border: rgb(255 240 225 / 10%);
+  --border-strong: rgb(255 240 225 / 20%);
+  --hairline: rgb(255 240 225 / 13%);
+  --light-warm: rgb(212 154 115 / 13%);
+  --light-cool: rgb(120 90 60 / 12%);
+  --halo: rgb(212 154 115 / 10%);
+  --grain-opacity: 0.07;
+  --grain-blend: overlay;
+  --shadow-paper:
+    0 1px 1px rgb(0 0 0 / 30%), 0 6px 14px -4px rgb(0 0 0 / 35%), 0 28px 56px -20px rgb(0 0 0 / 55%);
+  --shadow-lift:
+    0 1px 1px rgb(0 0 0 / 30%), 0 10px 22px -6px rgb(0 0 0 / 42%),
+    0 36px 70px -24px rgb(0 0 0 / 62%);
+  --paper-edge: inset 0 1px 0 rgb(255 240 225 / 7%);
+  --nav-surface: rgb(22 20 18 / 72%);
+  --outline-text: rgb(255 240 225 / 11%);
+  --selection: rgb(212 154 115 / 30%);
+}

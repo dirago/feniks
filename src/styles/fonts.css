@@ -1,0 +1,10 @@
+/* Webfonts are self-hosted through @fontsource (imported in main.ts).
+   Metric-matched local fallback limits layout shift while they load. */
+@font-face {
+  font-family: 'Instrument Sans Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Helvetica');
+  size-adjust: 96%;
+  ascent-override: 96%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}

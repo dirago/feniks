@@ -1,0 +1,11 @@
+/* Theme change — the new snapshot is revealed by a clip-path circle animated
+   from JS (see useTheme). We only neutralise the default cross-fade here. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+}
