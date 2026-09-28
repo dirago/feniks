@@ -6,7 +6,6 @@
           <slot :name="`line-${index}`">{{ line }}</slot>
         </span>
       </span>
-      ' '
     </template>
   </span>
 </template>

@@ -17,7 +17,6 @@
 
       <h1 id="hero-title" class="hero__title">
         <span class="hero__line" data-hero-line><span>Senior Frontend</span></span>
-        ' '
         <span class="hero__line hero__line--accent" data-hero-line>
           <span><em class="accent-serif">Freelance</em></span>
         </span>

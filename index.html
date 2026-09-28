@@ -1,79 +1,80 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Raphaël Di Rago — Lead Frontend Freelance | Vue.js &amp; TypeScript</title>
-    <meta
-      name="description"
-      content="Lead Frontend freelance spécialisé en Vue.js et TypeScript. Architecture frontend, Design Systems, qualité, tests et applications web complexes."
-    />
-    <meta name="author" content="%PROFILE_NAME%" />
-    <link rel="canonical" href="%SITE_URL%/" />
-    <meta name="theme-color" content="#f1ebe1" />
-    <meta name="color-scheme" content="light dark" />
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <title>Raphaël Di Rago — Senior Frontend Freelance | Vue.js &amp; TypeScript</title>
+  <meta
+    name="description"
+    content="Lead Frontend freelance spécialisé en Vue.js et TypeScript. Architecture frontend, Design Systems, qualité, tests et applications web complexes."
+  />
+  <meta name="author" content="%PROFILE_NAME%"/>
+  <link rel="canonical" href="%SITE_URL%/"/>
+  <meta name="theme-color" content="#f1ebe1"/>
+  <meta name="color-scheme" content="light dark"/>
 
-    <!-- Theme before first paint: stored choice, else OS preference. No flash. -->
-    <script>
-      ;(function () {
-        var root = document.documentElement
-        var theme
-        try {
-          theme = localStorage.getItem('%THEME_STORAGE_KEY%')
-        } catch (e) {}
-        if (theme !== 'light' && theme !== 'dark') {
-          theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-        }
-        root.dataset.theme = theme
-        root.style.colorScheme = theme
-        document
-          .querySelector('meta[name="theme-color"]')
-          .setAttribute('content', theme === 'dark' ? '#161412' : '#f1ebe1')
-        if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          root.classList.add('motion-ok')
-        }
-      })()
-    </script>
+  <!-- Theme before first paint: stored choice, else OS preference. No flash. -->
+  <script>
+    ;(function () {
+      var root = document.documentElement;
+      var theme;
+      try {
+        theme = localStorage.getItem('%THEME_STORAGE_KEY%');
+      } catch (e) {
+      }
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+      document
+        .querySelector('meta[name="theme-color"]')
+        .setAttribute('content', theme === 'dark' ? '#161412' : '#f1ebe1');
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        root.classList.add('motion-ok');
+      }
+    })();
+  </script>
 
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="fr_FR" />
-    <meta property="og:site_name" content="%PROFILE_NAME%" />
-    <meta property="og:url" content="%SITE_URL%/" />
-    <meta property="og:title" content="Raphaël Di Rago — Lead Frontend Freelance" />
-    <meta
-      property="og:description"
-      content="Lead Frontend freelance spécialisé en Vue.js et TypeScript. Architecture frontend, Design Systems, qualité, tests et applications web complexes."
-    />
-    <meta property="og:image" content="%SITE_URL%/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta
-      property="og:image:alt"
-      content="Raphaël Di Rago — Lead Frontend Freelance — Vue.js · TypeScript"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Raphaël Di Rago — Lead Frontend Freelance" />
-    <meta
-      name="twitter:description"
-      content="Lead Frontend freelance spécialisé en Vue.js et TypeScript. Architecture frontend, Design Systems, qualité, tests et applications web complexes."
-    />
-    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta property="og:site_name" content="%PROFILE_NAME%"/>
+  <meta property="og:url" content="%SITE_URL%/"/>
+  <meta property="og:title" content="Raphaël Di Rago — Senior Frontend Freelance"/>
+  <meta
+    property="og:description"
+    content="Lead Frontend freelance spécialisé en Vue.js et TypeScript. Architecture frontend, Design Systems, qualité, tests et applications web complexes."
+  />
+  <meta property="og:image" content="%SITE_URL%/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta
+    property="og:image:alt"
+    content="Raphaël Di Rago — Senior Frontend Freelance — Vue.js · TypeScript"
+  />
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Raphaël Di Rago — Senior Frontend Freelance"/>
+  <meta
+    name="twitter:description"
+    content="Lead Frontend freelance spécialisé en Vue.js et TypeScript. Architecture frontend, Design Systems, qualité, tests et applications web complexes."
+  />
+  <meta name="twitter:image" content="%SITE_URL%/og-image.png"/>
 
-    <script type="application/ld+json">
-      %JSON_LD%
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <noscript>
-      <p style="padding: 2rem; font-family: system-ui, sans-serif">
-        Raphaël Di Rago — Senior / Lead Frontend freelance (Vue.js, TypeScript). Contact :
-        <a href="mailto:rdirago@feniks.fr">rdirago@feniks.fr</a>
-      </p>
-    </noscript>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  <script type="application/ld+json">
+    %JSON_LD%
+  </script>
+</head>
+<body>
+<div id="app"></div>
+<noscript>
+  <p style="padding: 2rem; font-family: system-ui, sans-serif">
+    Raphaël Di Rago — Senior / Lead Frontend freelance (Vue.js, TypeScript). Contact :
+    <a href="mailto:rdirago@feniks.fr">rdirago@feniks.fr</a>
+  </p>
+</noscript>
+<script type="module" src="/src/main.ts"></script>
+</body>
 </html>
