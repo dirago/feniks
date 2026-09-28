@@ -11,6 +11,9 @@ ErrorDocument 404 /index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Let's Encrypt HTTP-01 validation must reach the server as-is.
+  RewriteRule ^\.well-known/acme-challenge/ - [L]
+
   RewriteCond %{HTTP_HOST} ^feniks\.fr$ [NC]
   RewriteRule ^(.*)$ https://www.feniks.fr/$1 [R=301,L]
 
