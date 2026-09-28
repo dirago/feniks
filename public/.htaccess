@@ -65,8 +65,3 @@ ErrorDocument 404 /index.html
   # Enable once HTTPS is confirmed working on both hosts:
   # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
-
-# Never serve the deploy state file written by the GitHub Action.
-<Files ".ftp-deploy-sync-state.json">
-  Require all denied
-</Files>

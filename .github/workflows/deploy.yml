@@ -45,16 +45,22 @@ jobs:
         # Includes the type check (vue-tsc -b).
         run: pnpm build
 
-      - name: Upload to OVH (www/)
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # OVH shared hosting (Perso) does not implement FTPS (AUTH TLS): plain FTP only.
-          protocol: ftp
-          local-dir: ./dist/
-          server-dir: ./www/
-          # Incremental sync: a state file on the server lists what was uploaded,
-          # so only changed files are sent and stale hashed assets are removed.
-          dangerous-clean-slate: false
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Upload to OVH (www/) over SFTP
+        env:
+          SFTP_HOST: ${{ secrets.FTP_SERVER }}
+          SFTP_USER: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p 22 -H "$SFTP_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # Encrypted transfer (OVH does not offer FTPS). Mirrors dist/ into www/:
+          # uploads everything, removes remote files that are no longer built.
+          lftp --env-password -u "$SFTP_USER" "sftp://$SFTP_HOST" -e "
+            set net:max-retries 2;
+            set net:timeout 20;
+            mirror --reverse --delete --verbose --parallel=4 dist/ www/;
+            quit
+          "
