@@ -11,7 +11,7 @@
         </p>
         <BaseButton
           class="availability__cta"
-          :href="mailto('Mission frontend — premier échange')"
+          :href="mailto('Mission frontend - premier échange')"
           magnetic
         >
           Parlons de votre projet

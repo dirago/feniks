@@ -73,7 +73,6 @@ const root = useTemplateRef<HTMLElement>('root')
 useGsap(root, ({ root: hero, conditions }) => {
   if (!conditions.motion) return
 
-  // Short, readable intro: the headline is fully in place after ~0.9s.
   const intro = gsap.timeline({ defaults: { ease: EASE.out } })
   intro
     .fromTo('.hero__sheets', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 1.4 }, 0)
@@ -125,7 +124,6 @@ useGsap(root, ({ root: hero, conditions }) => {
   margin-inline: auto;
 }
 
-/* ---- Eyebrow ------------------------------------------------------------ */
 .hero__eyebrow {
   grid-column: 1 / -1;
   display: flex;
@@ -148,14 +146,6 @@ useGsap(root, ({ root: hero, conditions }) => {
   color: var(--text-muted);
 }
 
-.hero__eyebrow-role::before {
-  content: '';
-  inline-size: 2rem;
-  block-size: 1px;
-  background-color: currentcolor;
-}
-
-/* ---- Title --------------------------------------------------------------- */
 .hero__title {
   grid-column: 1 / -1;
   align-self: center;
@@ -189,7 +179,6 @@ useGsap(root, ({ root: hero, conditions }) => {
   line-height: 0.8;
 }
 
-/* ---- Aside --------------------------------------------------------------- */
 .hero__aside {
   grid-column: 1 / -1;
   display: grid;
@@ -236,12 +225,10 @@ useGsap(root, ({ root: hero, conditions }) => {
   margin-inline-start: 0.5rem;
 }
 
-/* ---- Scroll cue ---------------------------------------------------------- */
 .hero__scroll {
   display: none;
 }
 
-/* ---- Paper sheets -------------------------------------------------------- */
 .hero__sheets {
   position: absolute;
 

@@ -3,7 +3,7 @@
     <div class="container footer__inner">
       <p class="footer__name">
         <strong>{{ profile.name }}</strong>
-        <span>{{ profile.role }} — {{ profile.status }}</span>
+        <span>{{ profile.role }} - {{ profile.status }}</span>
       </p>
       <p class="footer__meta mono">
         <span>© {{ year }}</span>

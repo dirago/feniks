@@ -15,7 +15,7 @@
           </SplitLines>
         </h2>
         <p class="expertise__intro-text">
-          Des applications frontend complexes, from scratch comme sur des produits existants — de la
+          Des applications frontend complexes, from scratch comme sur des produits existants, de la
           conception technique jusqu’à l’implémentation.
         </p>
 
