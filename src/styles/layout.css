@@ -25,14 +25,6 @@
   color: var(--text-muted);
 }
 
-.section-label::before {
-  content: '';
-  inline-size: 2.25rem;
-  block-size: 1px;
-  background: currentcolor;
-  opacity: 0.6;
-}
-
 .display {
   font-size: var(--step-5);
   font-weight: 600;
