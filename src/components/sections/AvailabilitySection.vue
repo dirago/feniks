@@ -1,19 +1,14 @@
 <template>
   <section id="disponibilite" aria-labelledby="availability-title" class="availability">
     <div class="container">
-      <div class="availability__sheet" data-reveal>
-        <p class="availability__label mono">Mission freelance</p>
+      <div class="availability__panel">
         <h2 id="availability-title" class="availability__title">
           Vous avez un frontend à construire, moderniser ou remettre sur de bons rails&nbsp;?
         </h2>
         <p class="availability__text">
           Je peux intervenir ponctuellement ou rejoindre une équipe sur une mission longue durée.
         </p>
-        <BaseButton
-          class="availability__cta"
-          :href="mailto('Mission frontend - premier échange')"
-          magnetic
-        >
+        <BaseButton class="availability__cta" :href="mailto('Mission frontend - premier échange')">
           Parlons de votre projet
         </BaseButton>
       </div>
@@ -31,39 +26,21 @@ import BaseButton from '@/components/common/BaseButton.vue'
   padding-block: var(--space-xl) var(--section-space);
 }
 
-.availability__sheet {
-  position: relative;
+.availability__panel {
   display: grid;
   gap: var(--space-m);
   justify-items: start;
   padding: var(--space-xl) var(--space-m);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-m);
   background-color: var(--surface-elevated);
-  box-shadow: var(--paper-edge), var(--shadow-lift);
-}
-
-/* A second sheet peeking out underneath. */
-.availability__sheet::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: inherit;
-  background-color: var(--surface-raised);
-  box-shadow: var(--shadow-paper);
-  rotate: -1.2deg;
-  translate: 0.2rem 0.5rem;
-}
-
-.availability__label {
-  color: var(--accent-ink);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
 
 .availability__title {
   max-inline-size: 20ch;
   font-size: var(--step-4);
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-display);
 }
 
 .availability__text {
@@ -78,26 +55,26 @@ import BaseButton from '@/components/common/BaseButton.vue'
 }
 
 @media (width >= 64em) {
-  .availability__sheet {
+  .availability__panel {
     grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
     align-items: end;
     column-gap: var(--space-xl);
     padding: var(--space-2xl) var(--space-xl);
   }
 
-  .availability__label,
   .availability__title {
     grid-column: 1;
+    grid-row: 1 / span 2;
   }
 
   .availability__text {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
   }
 
   .availability__cta {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 2;
   }
 }
 </style>

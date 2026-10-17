@@ -2,7 +2,7 @@
   <header class="nav" :class="{ 'is-scrolled': isScrolled, 'is-past-hero': isPastHero }">
     <div class="nav__inner">
       <a class="nav__brand" href="#top">
-        <span aria-hidden="true">RDR<span class="nav__brand-dot">.</span></span>
+        <span aria-hidden="true">RDR</span>
         <span class="visually-hidden">{{ profile.name }}, retour en haut de page</span>
       </a>
 
@@ -104,7 +104,7 @@ onMounted(() => {
   position: absolute;
   inset: 0;
   background-color: var(--nav-surface);
-  backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px);
   border-block-end: 1px solid var(--border);
   opacity: 0;
   transition: opacity var(--duration-m) var(--ease-out);
@@ -129,13 +129,10 @@ onMounted(() => {
   align-items: baseline;
   gap: 0.6rem;
   margin-inline-end: auto;
+  font-family: var(--font-display);
   font-size: var(--step-2);
-  font-weight: 650;
-  letter-spacing: -0.04em;
-}
-
-.nav__brand-dot {
-  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: -0.03em;
 }
 
 .nav__brand:focus-visible {
@@ -157,7 +154,7 @@ onMounted(() => {
   align-items: center;
   min-block-size: 2.75rem;
   padding-inline: 1rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   font-size: var(--step--1);
   font-weight: 500;
   color: var(--text-soft);
@@ -170,7 +167,7 @@ onMounted(() => {
 }
 
 .nav__link:focus-visible {
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
 }
 
 /* A 1px-wide bar scaled to the active link width — transform only. */
@@ -179,7 +176,7 @@ onMounted(() => {
   inset-block-end: 0.35rem;
   inset-inline-start: 0;
   inline-size: 1px;
-  block-size: 1.5px;
+  block-size: 2px;
   background-color: var(--accent);
   transform-origin: 0 50%;
   transition:
@@ -195,12 +192,10 @@ onMounted(() => {
     inset-block-end: max(1rem, env(safe-area-inset-bottom));
     inset-inline-start: 50%;
     padding: 0.3rem;
-    border-radius: var(--radius-pill);
+    border-radius: var(--radius-m);
     background-color: var(--nav-surface);
-    backdrop-filter: blur(14px) saturate(1.2);
-    box-shadow:
-      inset 0 0 0 1px var(--border),
-      var(--shadow-lift);
+    backdrop-filter: blur(14px);
+    box-shadow: inset 0 0 0 1px var(--border-strong);
     transform: translate(-50%, 140%);
     opacity: 0;
     transition:

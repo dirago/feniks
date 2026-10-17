@@ -6,16 +6,9 @@
     class="section timeline"
     :class="{ 'is-scrolly': isScrolly }"
   >
-    <div aria-hidden="true" class="timeline__warmth" />
-
     <div class="container">
       <header class="timeline__header">
-        <p class="section-label">Parcours</p>
-        <h2 id="parcours-title" class="display timeline__title">
-          <SplitLines :lines="['Presque 10 ans', 'à construire des produits.']">
-            <template #line-1>à construire des <em class="accent-serif">produits.</em></template>
-          </SplitLines>
-        </h2>
+        <h2 id="parcours-title" class="display">Presque 10 ans à construire des produits.</h2>
         <p class="timeline__intro">
           Six missions freelance, des sites internationaux de Michelin à une plateforme SaaS
           construite from scratch.
@@ -26,7 +19,7 @@
         <aside aria-label="Progression du parcours" class="timeline__aside">
           <div aria-hidden="true" class="timeline__now">
             <p class="timeline__year"><TimelineYear v-if="active" :year="active.startYear" /></p>
-            <p class="timeline__now-end mono">→ {{ active?.endYear }}</p>
+            <p class="timeline__now-end meta">jusqu’à {{ active?.endYear }}</p>
             <p class="timeline__now-company">{{ active?.company }}</p>
             <p class="timeline__now-role">
               <template v-if="active?.previousRole">
@@ -37,7 +30,7 @@
             </p>
           </div>
 
-          <div aria-hidden="true" class="timeline__range mono">
+          <div aria-hidden="true" class="timeline__range meta">
             <span>{{ firstYear }}</span>
             <span class="timeline__range-bar"><span class="timeline__range-fill" /></span>
             <span>{{ lastYear }}</span>
@@ -50,7 +43,7 @@
                   :aria-current="index === activeIndex ? 'step' : undefined"
                   :href="`#mission-${experience.id}`"
                 >
-                  <span class="timeline__index-year mono">{{ experience.startYear }}</span>
+                  <span class="timeline__index-year">{{ experience.startYear }}</span>
                   {{ experience.company }}
                 </a>
               </li>
@@ -82,7 +75,6 @@ import { computed, ref, useTemplateRef } from 'vue'
 import { experiences } from '@/data/experiences'
 import { useGsap } from '@/composables/useGsap'
 import { createTimelineAnimations } from '@/animations/timeline'
-import SplitLines from '@/components/common/SplitLines.vue'
 import TimelineItem from './TimelineItem.vue'
 import TimelineYear from './TimelineYear.vue'
 
@@ -113,22 +105,6 @@ useGsap(
 <style scoped>
 .timeline {
   isolation: isolate;
-}
-
-/* A warmer wash builds up as the career unfolds. */
-.timeline__warmth {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    radial-gradient(60% 30% at 0% 35%, var(--light-warm), transparent 70%),
-    radial-gradient(50% 30% at 100% 80%, var(--light-cool), transparent 70%);
-  pointer-events: none;
-}
-
-.motion-ok .timeline__warmth {
-  opacity: 0;
-  visibility: hidden;
 }
 
 .timeline__header {
@@ -162,12 +138,10 @@ useGsap(
   gap: 0.25rem var(--space-s);
   margin-block-end: var(--space-m);
   padding: 0.65rem 1rem;
-  border-radius: var(--radius-m);
+  border-radius: var(--radius-s);
   background-color: var(--nav-surface);
-  backdrop-filter: blur(14px) saturate(1.2);
-  box-shadow:
-    inset 0 0 0 1px var(--border),
-    var(--shadow-paper);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
 
 .timeline__now {
@@ -176,9 +150,11 @@ useGsap(
 
 .timeline__year {
   grid-row: span 2;
+  font-family: var(--font-display);
   font-size: var(--step-3);
-  font-weight: 620;
-  letter-spacing: -0.04em;
+  font-weight: 560;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
   color: var(--accent);
 }
 
@@ -209,7 +185,7 @@ useGsap(
   gap: 0.75rem;
   margin-block-start: 0.35rem;
   color: var(--text-muted);
-  font-size: 0.65rem;
+  font-size: var(--step--2);
 }
 
 .timeline__range-bar {
@@ -240,14 +216,14 @@ useGsap(
   position: absolute;
   inset-block: 0;
   inset-inline-start: 0;
-  inline-size: 1px;
+  inline-size: 2px;
   background-color: var(--hairline);
 }
 
 .timeline__axis-fill {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, var(--accent-soft), var(--accent));
+  background-color: var(--accent);
   transform-origin: 50% 0;
 }
 
@@ -282,17 +258,15 @@ useGsap(
 
   .timeline__year {
     grid-row: auto;
-    font-size: clamp(5rem, 2rem + 6vw, 10.5rem);
-    font-weight: 640;
-    font-stretch: 85%;
+    font-size: clamp(5rem, 2rem + 6vw, 10rem);
+    font-weight: 500;
     line-height: 0.9;
-    letter-spacing: -0.06em;
+    letter-spacing: -0.05em;
     color: var(--text);
   }
 
   .timeline__now-end {
     display: block;
-    color: var(--accent-ink);
   }
 
   .timeline__now-company {
@@ -354,7 +328,7 @@ useGsap(
 
   .timeline__index a[aria-current] {
     padding-inline-start: 0.75rem;
-    font-weight: 560;
+    font-weight: 600;
     color: var(--text);
     box-shadow: inset 2px 0 0 var(--accent);
   }

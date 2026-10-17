@@ -32,7 +32,7 @@ body {
   min-height: 100svh;
   font-family: var(--font-sans);
   font-size: var(--step-0);
-  font-weight: 420;
+  font-weight: 400;
   line-height: var(--leading-body);
   color: var(--text);
   background-color: var(--surface);
@@ -80,7 +80,8 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 560;
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-title);
   text-wrap: balance;

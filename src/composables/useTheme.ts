@@ -3,7 +3,7 @@ import { THEME_STORAGE_KEY, type Theme } from '@/config/theme'
 
 const DARK_QUERY = '(prefers-color-scheme: dark)'
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)'
-const THEME_COLORS: Record<Theme, string> = { light: '#f1ebe1', dark: '#161412' }
+const THEME_COLORS: Record<Theme, string> = { light: '#f1eff2', dark: '#15121c' }
 
 const isTheme = (value: unknown): value is Theme => value === 'light' || value === 'dark'
 

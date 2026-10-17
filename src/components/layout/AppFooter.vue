@@ -5,7 +5,7 @@
         <strong>{{ profile.name }}</strong>
         <span>{{ profile.role }} - {{ profile.status }}</span>
       </p>
-      <p class="footer__meta mono">
+      <p class="footer__meta meta">
         <span>© {{ year }}</span>
       </p>
     </div>
@@ -48,7 +48,6 @@ const year = new Date().getFullYear()
 .footer__meta {
   display: flex;
   gap: var(--space-m);
-  color: var(--text-muted);
 }
 
 @media (width < 48em) {

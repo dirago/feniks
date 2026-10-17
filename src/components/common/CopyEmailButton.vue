@@ -51,7 +51,7 @@ onBeforeUnmount(() => {
   gap: 0.6rem;
   min-block-size: 2.75rem;
   padding: 0.4rem 1rem 0.4rem 0.45rem;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   font-size: var(--step--1);
   font-weight: 500;
   color: var(--text-soft);
@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
   place-items: center;
   inline-size: 2rem;
   aspect-ratio: 1;
-  border-radius: 50%;
+  border-radius: var(--radius-xs);
   background-color: var(--surface-sunken);
   transition:
     background-color var(--duration-s) var(--ease-out),

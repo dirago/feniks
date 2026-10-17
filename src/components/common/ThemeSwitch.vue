@@ -19,7 +19,7 @@
             <path d="M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
           </g>
         </svg>
-        <span class="theme-switch__label">Light</span>
+        <span class="theme-switch__label">Clair</span>
       </span>
 
       <span class="theme-switch__option theme-switch__option--dark">
@@ -30,7 +30,7 @@
           </mask>
           <circle cx="12" cy="12" fill="currentColor" mask="url(#moon-cut)" r="7.5" />
         </svg>
-        <span class="theme-switch__label">Dark</span>
+        <span class="theme-switch__label">Sombre</span>
       </span>
     </span>
   </button>
@@ -56,12 +56,12 @@ function onClick(event: MouseEvent): void {
 
   position: relative;
   display: inline-flex;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   -webkit-tap-highlight-color: transparent;
 }
 
 .theme-switch:focus-visible {
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
 }
 
 .theme-switch__track {
@@ -71,34 +71,27 @@ function onClick(event: MouseEvent): void {
   align-items: center;
   block-size: var(--height);
   padding: var(--pad);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-s);
   background-color: var(--surface-sunken);
-  box-shadow:
-    inset 0 1px 2px rgb(0 0 0 / 8%),
-    inset 0 0 0 1px var(--border);
+  box-shadow: inset 0 0 0 1px var(--border);
   transition:
     background-color var(--duration-s) var(--ease-out),
     box-shadow var(--duration-s) var(--ease-out);
 }
 
 .theme-switch:hover .theme-switch__track {
-  box-shadow:
-    inset 0 1px 2px rgb(0 0 0 / 8%),
-    inset 0 0 0 1px var(--border-strong);
+  box-shadow: inset 0 0 0 1px var(--border-strong);
 }
 
-/* Paper puck sliding between the two options. */
+/* Puck sliding between the two options. */
 .theme-switch__thumb {
   position: absolute;
   inset-block: var(--pad);
   inset-inline-start: var(--pad);
   inline-size: calc(50% - var(--pad));
-  border-radius: var(--radius-pill);
-  background: linear-gradient(180deg, var(--surface-elevated), var(--surface-raised));
-  box-shadow:
-    var(--paper-edge),
-    0 1px 2px rgb(40 25 10 / 12%),
-    0 4px 12px -4px rgb(40 25 10 / 25%);
+  border-radius: var(--radius-s);
+  background-color: var(--surface-elevated);
+  box-shadow: inset 0 0 0 1px var(--border-strong);
   transition: transform 520ms var(--ease-in-out);
 }
 
@@ -129,11 +122,8 @@ function onClick(event: MouseEvent): void {
 }
 
 .theme-switch__label {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--step--1);
   font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .sun,

@@ -6,13 +6,12 @@
     data-timeline-item
   >
     <article :aria-labelledby="`mission-${experience.id}-title`" class="t-item__article">
-      <span aria-hidden="true" class="t-item__ghost">{{ experience.startYear }}</span>
       <span aria-hidden="true" class="t-item__tick" />
 
-      <p class="t-item__period mono">{{ experience.period }}</p>
+      <p class="t-item__period meta">{{ experience.period }}</p>
 
       <h3 :id="`mission-${experience.id}-title`" class="t-item__company">
-        <span class="t-item__company-inner">{{ experience.company }}</span>
+        {{ experience.company }}
       </h3>
 
       <dl class="t-item__meta">
@@ -45,7 +44,7 @@
       </ul>
 
       <div class="t-item__impact">
-        <p class="t-item__impact-label mono">Impact</p>
+        <p class="t-item__impact-label">Impact</p>
         <p class="t-item__impact-text">{{ experience.impact }}</p>
       </div>
 
@@ -86,12 +85,8 @@ defineProps<{
 .t-item__company,
 .t-item__meta dd,
 .t-item__desc,
-.t-item__impact-text,
-.t-item__ghost {
-  transition:
-    color 700ms var(--ease-out),
-    -webkit-text-stroke-color 700ms var(--ease-out),
-    opacity 700ms var(--ease-out);
+.t-item__impact-text {
+  transition: color 700ms var(--ease-out);
 }
 
 .is-dimmed .t-item__company {
@@ -105,80 +100,27 @@ defineProps<{
   color: var(--text-muted);
 }
 
-.is-dimmed .t-item__ghost {
-  opacity: 0.4;
-}
-
-/* Giant outlined start year floating behind the mission. */
-.t-item__ghost {
-  position: absolute;
-  inset-block-start: -0.18em;
-  inset-inline-end: 0;
-  z-index: -1;
-  font-size: clamp(6rem, 3rem + 14vw, 17rem);
-  font-weight: 700;
-  font-stretch: 80%;
-  line-height: 1;
-  letter-spacing: -0.06em;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--outline-text);
-  pointer-events: none;
-  user-select: none;
-}
-
-/* Tick crossing the axis — grows when the mission becomes active. */
+/* Weft thread crossing the axis — takes the accent when the mission is read. */
 .t-item__tick {
   position: absolute;
   inset-block-start: calc(var(--pad-top) + 0.6em);
   inset-inline-start: var(--tick-start);
   inline-size: calc(var(--tick-start) * -1 - 0.75rem);
-  block-size: 1px;
+  block-size: 2px;
   background-color: var(--border-strong);
   transform-origin: 0 50%;
   transition: background-color 600ms var(--ease-out);
-}
-
-.t-item__tick::before {
-  content: '';
-  position: absolute;
-  inset-block-start: -3px;
-  inset-inline-start: -3px;
-  inline-size: 7px;
-  block-size: 7px;
-  background-color: var(--surface);
-  box-shadow: inset 0 0 0 1px var(--border-strong);
-  rotate: 45deg;
-  transition:
-    background-color 600ms var(--ease-out),
-    box-shadow 600ms var(--ease-out);
 }
 
 .is-active .t-item__tick {
   background-color: var(--accent);
 }
 
-.is-active .t-item__tick::before {
-  background-color: var(--accent);
-  box-shadow: inset 0 0 0 1px var(--accent);
-}
-
-.t-item__period {
-  color: var(--accent-ink);
-}
-
 .t-item__company {
-  overflow: clip;
-  overflow-clip-margin: 0.1em;
   font-size: var(--step-5);
-  font-weight: 620;
-  font-stretch: 90%;
-  line-height: 0.95;
-  letter-spacing: -0.05em;
-}
-
-.t-item__company-inner {
-  display: inline-block;
-  padding-block-end: 0.05em;
+  font-weight: 560;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
 }
 
 .t-item__meta {
@@ -197,10 +139,7 @@ defineProps<{
 }
 
 .t-item__meta dt {
-  font-family: var(--font-mono);
-  font-size: var(--step--2);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
+  font-size: var(--step--1);
   color: var(--text-muted);
 }
 
@@ -218,7 +157,7 @@ defineProps<{
 
 .t-item__role-from {
   color: var(--text-muted);
-  font-weight: 450;
+  font-weight: 400;
 }
 
 .t-item__role-arrow {
@@ -245,8 +184,8 @@ defineProps<{
   inset-block-start: 0.8em;
   inset-inline-start: 0;
   inline-size: 0.6rem;
-  block-size: 1px;
-  background-color: var(--accent);
+  block-size: 2px;
+  background-color: var(--accent-soft);
 }
 
 .t-item__impact {
@@ -254,14 +193,14 @@ defineProps<{
   gap: 0.35rem;
   max-inline-size: var(--measure);
   margin-block-start: var(--space-2xs);
-  padding: var(--space-s) var(--space-m);
+  padding-inline-start: var(--space-s);
   border-inline-start: 2px solid var(--accent);
-  background-color: color-mix(in srgb, var(--surface-elevated) 65%, transparent);
-  border-radius: 0 var(--radius-s) var(--radius-s) 0;
 }
 
 .t-item__impact-label {
-  color: var(--accent-ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .t-item__impact-text {
@@ -273,24 +212,14 @@ defineProps<{
   margin-block-start: var(--space-3xs);
 }
 
-/* ---- Featured mission: a sheet of paper laid across the axis --------------- */
+/* ---- Featured mission: a raised panel laid across the axis ----------------- */
 .is-featured .t-item__article {
   --pad-top: var(--space-l);
 
   padding: var(--space-l) var(--space-m);
   border-radius: var(--radius-m);
   background-color: var(--surface-elevated);
-  box-shadow: var(--paper-edge), var(--shadow-lift);
-}
-
-.is-featured .t-item__company {
-  font-size: var(--step-6);
-}
-
-.is-featured .t-item__ghost {
-  inset-block-start: auto;
-  inset-block-end: -0.1em;
-  inset-inline-end: var(--space-m);
+  box-shadow: inset 0 0 0 1px var(--border);
 }
 
 @media (width >= 48em) {

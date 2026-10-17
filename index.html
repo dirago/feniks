@@ -10,7 +10,7 @@
   />
   <meta name="author" content="%PROFILE_NAME%"/>
   <link rel="canonical" href="%SITE_URL%/"/>
-  <meta name="theme-color" content="#f1ebe1"/>
+  <meta name="theme-color" content="#f1eff2"/>
   <meta name="color-scheme" content="light dark"/>
 
   <!-- Theme before first paint: stored choice, else OS preference. No flash. -->
@@ -29,10 +29,7 @@
       root.style.colorScheme = theme;
       document
         .querySelector('meta[name="theme-color"]')
-        .setAttribute('content', theme === 'dark' ? '#161412' : '#f1ebe1');
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        root.classList.add('motion-ok');
-      }
+        .setAttribute('content', theme === 'dark' ? '#15121c' : '#f1eff2');
     })();
   </script>
 

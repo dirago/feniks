@@ -19,5 +19,4 @@ render touch-icon.html 180,180 ../../public/apple-touch-icon.png
 
 # LinkedIn banner: 1584 × 396, exported at 2× for sharp rendering on HiDPI screens.
 mkdir -p ../../brand
-render linkedin-banner.html 1584,396 ../../brand/linkedin-banner-light.png 2
-render "linkedin-banner.html?dark" 1584,396 ../../brand/linkedin-banner-dark.png 2
+render linkedin-banner.html 1584,396 ../../brand/linkedin-banner.png 2
